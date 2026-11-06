@@ -1,0 +1,173 @@
+media:
+  input: media
+  output: /media
+  rename: safe
+  extensions:
+    - jpg
+    - jpeg
+    - png
+    - webp
+
+content:
+  - name: news
+    label: اخبار مدرسه
+    type: collection
+    path: content/news
+    format: yaml-frontmatter
+    filename: "{primary}.md"
+    view:
+      fields:
+        - title
+        - date
+        - category
+        - published
+        - featured
+      primary: title
+      sort: date
+      default:
+        sort: date
+        order: desc
+    fields:
+      - name: title
+        label: عنوان خبر
+        type: string
+        required: true
+
+      - name: date
+        label: تاریخ خبر
+        type: date
+        required: true
+
+      - name: category
+        label: دسته‌بندی
+        type: select
+        required: true
+        options:
+          values:
+            - آموزشی
+            - فرهنگی
+            - ورزشی
+            - مسابقات
+            - اطلاعیه
+
+      - name: summary
+        label: خلاصه خبر
+        type: text
+        required: true
+
+      - name: image
+        label: تصویر خبر
+        type: image
+        options:
+          extensions:
+            - jpg
+            - jpeg
+            - png
+            - webp
+
+      - name: featured
+        label: خبر داغ
+        type: boolean
+        default: false
+
+      - name: published
+        label: انتشار خبر
+        type: boolean
+        default: false
+
+      - name: body
+        label: متن کامل خبر
+        type: rich-text
+
+  - name: calendar
+    label: تقویم مدرسه
+    type: collection
+    path: content/calendar
+    format: yaml-frontmatter
+    filename: "{primary}.md"
+    view:
+      fields:
+        - title
+        - date
+        - event_type
+        - published
+      primary: title
+      sort: date
+      default:
+        sort: date
+        order: asc
+    fields:
+      - name: title
+        label: عنوان برنامه
+        type: string
+        required: true
+
+      - name: date
+        label: تاریخ برگزاری
+        type: date
+        required: true
+
+      - name: event_type
+        label: نوع برنامه
+        type: select
+        required: true
+        options:
+          values:
+            - امتحان
+            - مناسبت
+            - رویداد
+            - تعطیلی
+            - سایر
+
+      - name: description
+        label: توضیحات
+        type: rich-text
+
+      - name: published
+        label: نمایش در سایت
+        type: boolean
+        default: false
+
+  - name: honors
+    label: افتخارات
+    type: collection
+    path: content/honors
+    format: yaml-frontmatter
+    filename: "{primary}.md"
+    view:
+      fields:
+        - title
+        - date
+        - recipient
+        - published
+      primary: title
+      sort: date
+      default:
+        sort: date
+        order: desc
+    fields:
+      - name: title
+        label: عنوان دستاورد
+        type: string
+        required: true
+
+      - name: recipient
+        label: نام فرد یا گروه
+        type: string
+
+      - name: date
+        label: تاریخ کسب افتخار
+        type: date
+
+      - name: image
+        label: تصویر
+        type: image
+
+      - name: description
+        label: توضیحات دستاورد
+        type: rich-text
+
+      - name: published
+        label: نمایش در سایت
+        type: boolean
+        default: false
