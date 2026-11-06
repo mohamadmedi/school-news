@@ -1,12 +1,4 @@
-media:
-  input: media
-  output: /media
-  rename: safe
-  extensions:
-    - jpg
-    - jpeg
-    - png
-    - webp
+media: media
 
 content:
   - name: news
@@ -16,14 +8,9 @@ content:
     format: yaml-frontmatter
     filename: "{primary}.md"
     view:
-      fields:
-        - title
-        - date
-        - category
-        - published
-        - featured
       primary: title
-      sort: date
+      fields: [title, date, category, published, featured]
+      sort: [date, title]
       default:
         sort: date
         order: desc
@@ -41,7 +28,6 @@ content:
       - name: category
         label: دسته‌بندی
         type: select
-        required: true
         options:
           values:
             - آموزشی
@@ -53,17 +39,10 @@ content:
       - name: summary
         label: خلاصه خبر
         type: text
-        required: true
 
       - name: image
         label: تصویر خبر
         type: image
-        options:
-          extensions:
-            - jpg
-            - jpeg
-            - png
-            - webp
 
       - name: featured
         label: خبر داغ
@@ -86,16 +65,9 @@ content:
     format: yaml-frontmatter
     filename: "{primary}.md"
     view:
-      fields:
-        - title
-        - date
-        - event_type
-        - published
       primary: title
-      sort: date
-      default:
-        sort: date
-        order: asc
+      fields: [title, date, event_type, published]
+      sort: [date]
     fields:
       - name: title
         label: عنوان برنامه
@@ -110,7 +82,6 @@ content:
       - name: event_type
         label: نوع برنامه
         type: select
-        required: true
         options:
           values:
             - امتحان
@@ -135,16 +106,9 @@ content:
     format: yaml-frontmatter
     filename: "{primary}.md"
     view:
-      fields:
-        - title
-        - date
-        - recipient
-        - published
       primary: title
-      sort: date
-      default:
-        sort: date
-        order: desc
+      fields: [title, date, recipient, published]
+      sort: [date]
     fields:
       - name: title
         label: عنوان دستاورد
