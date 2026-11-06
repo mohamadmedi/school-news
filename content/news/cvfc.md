@@ -1,10 +1,10 @@
 ---
-title: cvfc
+title: t
 date: 2026-11-06
-category: اطلاعیه
-summary: vjgvyhg
+category: آموزشی
+summary: test
 image: /media/ابیاری3.jpg
 featured: false
 published: false
 ---
-gfufug
+test
